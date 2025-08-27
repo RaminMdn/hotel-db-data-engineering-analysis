@@ -60,12 +60,6 @@ hotel-data-engineering-demo/
 
 ##  Getting Started
 
-### Prerequisites
-- PostgreSQL (or your target DB)
-- Python 3.x with appropriate DB driver (`psycopg2` or similar)
-<br>
-
-
 ### Prerequisites  
 - PostgreSQL (or another SQL-compatible database/server)  
 - pgAdmin (or another SQL client/interface) 
