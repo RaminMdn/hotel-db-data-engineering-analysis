@@ -112,7 +112,6 @@ Install in a Python (or other relevant) terminal with:
 
 ```bash
 pip install psycopg2-binary
-Use this example to connect:
 ```
 
 Use in python:
