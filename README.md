@@ -34,22 +34,22 @@ This project demonstrates core data engineering workflows with a realistic hotel
 <br><br>
 
 
-hotel-data-engineering-demo/
+📁 hotel-data-engineering-demo/
 
     ├── README.md
-    ├── assets/
+    ├── 📁 assets/
     │   └── erd.png
-    ├── sql/
+    ├── 📁 sql/
     │   ├── create_tables.sql
     │   ├── insert_data.sql
     │   └── stored_procedures.sql
-    ├── python/
+    ├── 📁 python/
     │   └── db_connect_and_query.py
-    ├── data/
+    ├── 📁 data/
     │   └── sample_data.csv (not yet needed, possible data dumps)
-    ├── diagrams/
+    ├── 📁 diagrams/
     │   └── erd.png
-    └── docs/
+    └── 📁 docs/
         └── description.md (not yet needed)
 
 
@@ -175,7 +175,9 @@ print("Total rooms available in the hotel:", total_rooms)
 ## Visuals
 The ERD above visualizes the main tables and relationships in the hotel reservation system, including Room, Amenity, Guest, Reservation, and their junction tables.
 
-placeholder for the ERD diagram
+<div style="align: center;" align="center">
+<img style="width: 80%; display: inline-block;" alt="img" src="https://github.com/RaminMdn/hotel-db-data-engineering-analysis/blob/main/Diagrams/ERD.png"/>
+</div>
 
 ---
 <br><br>
@@ -197,8 +199,25 @@ Will be identified later on.
 ---
 <br><br>
 
-
 ## Contact
 GitHub: RaminMdn
+<br>
+
+## Author’s Note
+
+This project was developed as part of personal learning and practice.
+
+At times, I consult pair programming tools, programming forums or relevant documentations — for purposes like:
+
+- Proofreading code or comments
+- Double-checking best practices
+- Exploring alternative implementations
+
+These tools were used in the same way any developer might use a second pair of eyes, and never as a substitute for understanding or authorship.
+
+The goal was always clarity, correctness, and learning — with every line written and reviewed consciously and deliberately.
+
+
+
 
 <br><br>
