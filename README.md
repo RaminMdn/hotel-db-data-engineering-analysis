@@ -62,8 +62,11 @@ hotel-data-engineering-demo/
 - PostgreSQL (or your target DB)
 - Python 3.x with appropriate DB driver (`psycopg2` or similar)
 <br>
+
 ### Setup Steps
+
 ```bash
+
 # 1. Create the database
 createdb hotel_db
 
