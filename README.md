@@ -63,12 +63,20 @@ hotel-data-engineering-demo/
 - Python 3.x with appropriate DB driver (`psycopg2` or similar)
 <br>
 
-### Setup Steps
+
+### Prerequisites  
+- PostgreSQL (or another SQL-compatible database/server)  
+- pgAdmin (or another SQL client/interface) 
+- Python 3.x  
+- Python DB driver such as `psycopg2`  
+<br>
+
+### Database Setup/Creation and Data Insertion
 
 ```bash
 
 # 1. Create the database
-createdb hotel_db
+create db hotel_db
 
 # 2. Load schema and data
 psql -d hotel_db -f sql/create_tables.sql
@@ -78,9 +86,65 @@ psql -d hotel_db -f sql/stored_procedures.sql
 # 3. Run Python demo
 python3 python/db_connect_and_query.py
 ```
----
 
+Or manually perform these steps in a SQL client.
+
+<br>
+
+### Server Setup in pgAdmin  
+1. Open **pgAdmin** and right-click on **Servers** → **Register** → **Server...**  
+2. In the **General** tab: enter a name like `Local PostgreSQL`  
+3. In the **Connection** tab:  
+   - **Host**: `localhost`  
+   - **Port**: `5432` (default)  
+   - **Maintenance database**: `postgres`  
+   - **Username**: `postgres`  
+   - **Password**: *your PostgreSQL password*  
+4. Click **Save** and then **Connect** (you should see your databases appear)  
+
+<br>
+
+### Connecting via Python (psycopg2)  
+
+Install in a Python (or other relevant) terminal with:
+
+```bash
+pip install psycopg2-binary
+Use this example to connect:
+```
+
+Use in python:
+
+```bash
+import psycopg2
+from psycopg2 import Error
+
+try:
+    connection = psycopg2.connect(
+        host="localhost",
+        port="5432",
+        database="hotel_db",
+        user="postgres",
+        password="your_password"
+    )
+
+    cursor = connection.cursor()
+    cursor.execute("SELECT version();")
+    record = cursor.fetchone()
+    print("Connected to:", record)
+
+except (Exception, Error) as error:
+    print("Error while connecting to PostgreSQL:", error)
+finally:
+    if connection:
+        cursor.close()
+        connection.close()
+        print("Connection closed.")
+```
+
+---
 <br><br>
+
 
 ## Usage Examples
 
