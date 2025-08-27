@@ -1,10 +1,12 @@
 
-# Hotel Data Engineering and Analysis
+# Hotel Database Data Engineering and Analysis
 
 A demonstration project showcasing data engineering and analysis practices using a hotel reservation database. It includes SQL scripts (schema, inserts, stored procedures), Python integration, ERD diagrams, and sample data workflows.
 
+To avoid duplication and for saving time the sample data insertion scripts and table creation scripts are taken from an existing repo (https://github.com/riddleew/Hotel-Reservation-Database-SQL/tree/master), and are modified to adapt to PostgreSQL. The rest (Queries, Stored Procedures, Python files, Analysis related files, and other relevant technical materials) are original to this project and are not taken from other repos.
+
 ---
-<br><br>
+<br>
 
 ##  Table of Contents
 - [Overview](#overview)
@@ -17,7 +19,7 @@ A demonstration project showcasing data engineering and analysis practices using
 - [Contact](#contact)
 
 ---
-<br><br>
+<br>
 
 
 ## Overview  
@@ -33,21 +35,21 @@ This project demonstrates core data engineering workflows with a realistic hotel
 
 
 hotel-data-engineering-demo/
-├── README.md
-├── assets/
-│   └── erd.png
-├── sql/
-│   ├── create_tables.sql
-│   ├── insert_data.sql
-│   └── stored_procedures.sql
-├── python/
-│   └── db_connect_and_query.py
-├── data/
-│   └── sample_data.csv (not yet needed, possible data dumps)
-├── diagrams/
-│   └── erd.png
-└── docs/
-    └── description.md (not yet needed)
+    ├── README.md
+    ├── assets/
+    │   └── erd.png
+    ├── sql/
+    │   ├── create_tables.sql
+    │   ├── insert_data.sql
+    │   └── stored_procedures.sql
+    ├── python/
+    │   └── db_connect_and_query.py
+    ├── data/
+    │   └── sample_data.csv (not yet needed, possible data dumps)
+    ├── diagrams/
+    │   └── erd.png
+    └── docs/
+        └── description.md (not yet needed)
 
 
 ---
@@ -125,6 +127,14 @@ Share feedback or improvements viapull requests or GitHub issues
 
 ---
 <br><br>
+
+
+## License
+Will be identified later on.
+
+---
+<br><br>
+
 
 ## Contact
 GitHub: RaminMdn
