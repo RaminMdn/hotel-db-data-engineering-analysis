@@ -35,6 +35,7 @@ This project demonstrates core data engineering workflows with a realistic hotel
 
 
  hotel-data-engineering-demo/
+ 
     ├── README.md
     ├── 📁 assets/
     │   └── erd.png
