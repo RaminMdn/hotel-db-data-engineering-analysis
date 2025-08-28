@@ -1,3 +1,4 @@
+SELECT * FROM Amenity;
 DELETE FROM RoomAmenity;
 DELETE FROM Amenity;
 DELETE FROM RoomReservation;
