@@ -34,6 +34,7 @@ This project demonstrates core data engineering workflows with a realistic hotel
 <br><br>
 
 
+## Folder Structure
  hotel-data-engineering-demo/
  
     ├── README.md
