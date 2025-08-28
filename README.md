@@ -34,8 +34,7 @@ This project demonstrates core data engineering workflows with a realistic hotel
 <br><br>
 
 
-📁 hotel-data-engineering-demo/
-
+ hotel-data-engineering-demo/
     ├── README.md
     ├── 📁 assets/
     │   └── erd.png
@@ -176,7 +175,7 @@ print("Total rooms available in the hotel:", total_rooms)
 The ERD above visualizes the main tables and relationships in the hotel reservation system, including Room, Amenity, Guest, Reservation, and their junction tables.
 
 <div style="align: center;" align="center">
-<img style="width: 80%; display: inline-block;" alt="img" src="https://github.com/RaminMdn/hotel-db-data-engineering-analysis/blob/main/Diagrams/ERD.png"/>
+<img style="width: 110%; display: inline-block;" alt="img" src="https://github.com/RaminMdn/hotel-db-data-engineering-analysis/blob/main/Diagrams/ERD.png"/>
 </div>
 
 ---
