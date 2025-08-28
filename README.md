@@ -10,7 +10,7 @@ To avoid duplication and for saving time the sample data insertion scripts and t
 
 ##  Table of Contents
 - [Overview](#overview)
-- [Project Structure](#project-structure)
+- [Folder Structure](#folder-structure)
 - [Getting Started](#getting-started)
 - [Usage Examples](#usage-examples)
 - [Visuals](#visuals)
@@ -78,7 +78,7 @@ create db hotel_db
 # 2. Load schema and data
 psql -d hotel_db -f sql/create_tables.sql
 psql -d hotel_db -f sql/insert_data.sql
-psql -d hotel_db -f sql/stored_procedures.sql
+<!--psql -d hotel_db -f sql/stored_procedures.sql-->
 
 # 3. Run Python demo
 python3 python/db_connect_and_query.py
@@ -177,7 +177,7 @@ print("Total rooms available in the hotel:", total_rooms)
 The ERD above visualizes the main tables and relationships in the hotel reservation system, including Room, Amenity, Guest, Reservation, and their junction tables.
 
 <div style="align: center;" align="center">
-<img style="width: 110%; display: inline-block;" alt="img" src="https://github.com/RaminMdn/hotel-db-data-engineering-analysis/blob/main/Diagrams/ERD.png"/>
+<img style="width: 110%; display: inline-block;" alt="img" src="../hotel-db-data-engineering-analysis/Diagrams/ERD.png"/>
 </div>
 
 ---
@@ -217,8 +217,5 @@ At times, I consult pair programming tools, programming forums or relevant docum
 These tools were used in the same way any developer might use a second pair of eyes, and never as a substitute for understanding or authorship.
 
 The goal was always clarity, correctness, and learning — with every line written and reviewed consciously and deliberately.
-
-
-
 
 <br><br>
