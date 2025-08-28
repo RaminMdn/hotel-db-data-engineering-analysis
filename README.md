@@ -78,13 +78,14 @@ create db hotel_db
 # 2. Load schema and data
 psql -d hotel_db -f sql/create_tables.sql
 psql -d hotel_db -f sql/insert_data.sql
-<!--psql -d hotel_db -f sql/stored_procedures.sql-->
 
 # 3. Run Python demo
 python3 python/db_connect_and_query.py
 ```
 
 Or manually perform these steps in a SQL client.
+
+<!-- psql -d hotel_db -f sql/stored_procedures.sql -->
 
 <br>
 
@@ -177,7 +178,7 @@ print("Total rooms available in the hotel:", total_rooms)
 The ERD above visualizes the main tables and relationships in the hotel reservation system, including Room, Amenity, Guest, Reservation, and their junction tables.
 
 <div style="align: center;" align="center">
-<img style="width: 110%; display: inline-block;" alt="img" src="../hotel-db-data-engineering-analysis/Diagrams/ERD.png"/>
+<img style="width: 100%; display: inline-block;" alt="img" src="./Diagrams/ERD.png"/>
 </div>
 
 ---
