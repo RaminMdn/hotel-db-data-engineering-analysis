@@ -1,18 +1,18 @@
 
+/* 1: Find daily occupied room counts Over a date range:
 
-/* Query 1: Daily Occupied Room Counts Over a Date Range
+For a given date range, say from '2025-09-01' to '2025-09-07', return the number of rooms occupied each day, 
+including partial overlaps. This requires generating a series of dates and counting reservations active on each day.*/
 
-Problem: For a given date range, say from '2025-09-01' to '2025-09-07', return the number of rooms occupied each day—including partial overlaps. This requires generating a series of dates and counting reservations active on each day.
+-- Method 1: Using a date series with Joins + Aggregation
 
-Method: Using a date series with Joins + Aggregation*/
-
-WITH date_range AS (
+WITH DateRange AS (
   SELECT generate_series('2025-09-01'::date, '2025-09-07'::date, '1 day') AS dt
 ),
 occupied AS (
   SELECT dr.dt,
          COUNT(DISTINCT rr.RoomNumber) AS occupied_rooms
-  FROM date_range dr
+  FROM DateRange dr
   LEFT JOIN RoomReservation rr
     JOIN Reservation res
       ON res.ReservationId = rr.ReservationId
@@ -26,7 +26,7 @@ FROM occupied
 ORDER BY dt;
 
 
--- Alternative Approach: window Function Over flattened days
+-- Method 2: window function over flattened days
 
 -- First create one row per room per day within bookings and then count.
 
@@ -48,18 +48,18 @@ FROM daily_counts
 ORDER BY dt;
 
 
--- Recursive CTE for summarized availability trends
-WITH RECURSIVE date_range AS (
+-- Method 3: Recursive CTE for summarized availability trends
+WITH RECURSIVE DateRange AS (
   SELECT '2025-09-01'::date AS dt
   UNION ALL
   SELECT dt + INTERVAL '1 day'
-  FROM date_range
+  FROM DateRange
   WHERE dt + INTERVAL '1 day' <= '2025-09-07'::date
 ),
 counts AS (
   SELECT dr.dt,
          COUNT(DISTINCT rr.RoomNumber) AS occupied_rooms
-  FROM date_range dr
+  FROM DateRange dr
   LEFT JOIN RoomReservation rr
     JOIN Reservation res
       ON res.ReservationId = rr.ReservationId
@@ -72,11 +72,15 @@ SELECT dt AS date, occupied_rooms
 FROM counts
 ORDER BY dt;
 
-/* Query 2: Identify Guests Who Shared at Least Three Different Reservations Together
 
-Problem: Find pairs of guests who have been co-guests in at least three different reservations together. This compares pairwise guest relationships across reservations and counts the number of shared bookings.
 
-Approach: self Join + pair ordering + aggregation */
+
+/* 2: Identify guests who shared at least three different reservations together:
+
+Find pairs of guests who have been co-guests in at least three different reservations together. 
+This compares pairwise guest relationships across reservations and counts the number of shared bookings.*/
+
+-- Method 1: self Join + pair ordering + aggregation 
 SELECT
   gr1.GuestId AS guest1,
   gr2.GuestId AS guest2,
@@ -84,12 +88,12 @@ SELECT
 FROM GuestReservation gr1
 JOIN GuestReservation gr2
   ON gr1.ReservationId = gr2.ReservationId
- AND gr1.GuestId < gr2.GuestId  -- ensures unique pairs
+ AND gr1.GuestId < gr2.GuestId  -- unique pairs
 GROUP BY gr1.GuestId, gr2.GuestId
 HAVING COUNT(*) >= 3;
 
 
--- Alternative with CTE and Joining Guest Names
+-- Method 2: Alternatively, we can go with CTE and joining guest names
 WITH pairs AS (
   SELECT
     LEAST(gr1.GuestId, gr2.GuestId) AS g1,
@@ -112,8 +116,7 @@ GROUP BY g1.g1, g1.g2
 HAVING COUNT(DISTINCT g1.ReservationId) >= 3;
 
 
-
--- Sophisticated Window Function Method (optional)
+-- Method 3: Window Function Method (not an original solution, might be more sophisticated)
 WITH pair_counts AS (
   SELECT
     LEAST(gr1.GuestId, gr2.GuestId) AS guest_a,
@@ -130,3 +133,18 @@ WITH pair_counts AS (
 SELECT DISTINCT guest_a AS guest1, guest_b AS guest2
 FROM pair_counts
 WHERE cnt >= 3;
+
+
+
+-- 3: Find most popular room types based on number of nights booked in the past year
+
+-- Method 1: 
+SELECT 
+    ro.RoomType,
+    SUM(re.CheckOutDate - re.CheckInDate) AS TotalNightsBooked
+FROM Room ro
+JOIN RoomReservation rr ON ro.RoomNumber = rr.RoomNumber
+JOIN Reservation re ON rr.ReservationId = re.ReservationId
+WHERE re.CheckInDate >= CURRENT_DATE - INTERVAL '1 year'
+GROUP BY ro.RoomType
+ORDER BY TotalNightsBooked DESC;

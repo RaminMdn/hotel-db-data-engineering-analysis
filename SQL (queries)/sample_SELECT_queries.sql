@@ -29,7 +29,6 @@ WHERE r.HasJacuzzi = TRUE
   );
 
 
-
 -- 2. Find the top 3 guests by total spending (total of all their Reservations)
 
 -- Goal: Identify the top 3 guests ranked by the sum of Total in their reservations.
@@ -67,7 +66,6 @@ ORDER BY TotalSpent DESC
 LIMIT 3;
 
 
-
 --3. Average price per night per room type, including extra person charge
 
 -- We actually want to: compute average (basePrice + extraPerson) grouped by roomType.
@@ -94,8 +92,6 @@ WITH nightly AS (
 SELECT RoomType, AVG(night_charge) AS AvgNightly
 FROM nightly
 GROUP BY RoomType;
-
-
 
 
 --4. Find guests who shared a Reservation with someone else (i.e., roommates)
@@ -132,8 +128,6 @@ FROM (
 WHERE GuestCount > 1;
 
 
-
-
 --  5. For each amenity, Count how many ADA-C,ompliant rooms have it
 
 --Goal: For each amenity type (e.g., "WiFi"), count ADA rooms (IsADA = TRUE) that offer that amenity.
@@ -164,3 +158,20 @@ LEFT JOIN Room r ON r.RoomNumber = ra.RoomNumber AND r.IsADA = TRUE
 GROUP BY a.AmenityType;
 
 
+
+
+-- 6. Find overlapping reservations in the same room (double booking detection)
+
+-- Method 1: Using self join and date range
+SELECT 
+    r1.ReservationId AS Res1,
+    r2.ReservationId AS Res2,
+    rr1.RoomNumber
+FROM RoomReservation rr1
+JOIN Reservation r1 ON rr1.ReservationId = r1.ReservationId
+JOIN RoomReservation rr2 ON rr1.RoomNumber = rr2.RoomNumber
+JOIN Reservation r2 ON rr2.ReservationId = r2.ReservationId
+WHERE rr1.ReservationId <> rr2.ReservationId
+  AND r1.CheckInDate < r2.CheckOutDate
+  AND r2.CheckInDate < r1.CheckOutDate
+ORDER BY rr1.RoomNumber, Res1, Res2;
