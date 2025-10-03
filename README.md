@@ -36,23 +36,23 @@ This project demonstrates core data engineering workflows with a realistic hotel
 
 ## Folder Structure
 
-ðŸ“ hotel-db-data-engineering-analysis/
+Ã°Å¸â€œÂ hotel-db-data-engineering-analysis/
 
-    â”œâ”€â”€ README.md
-    â”œâ”€â”€ ðŸ“ assets/
-    â”‚   â””â”€â”€ erd.png
-    â”œâ”€â”€ ðŸ“ sql/
-    â”‚   â”œâ”€â”€ create_tables.sql
-    â”‚   â”œâ”€â”€ insert_data.sql
-    â”‚   â””â”€â”€ stored_procedures.sql
-    â”œâ”€â”€ ðŸ“ python/
-    â”‚   â””â”€â”€ db_connect_and_query.py
-    â”œâ”€â”€ ðŸ“ data/
-    â”‚   â””â”€â”€ sample_data.csv (not yet needed, possible data dumps)
-    â”œâ”€â”€ ðŸ“ diagrams/
-    â”‚   â””â”€â”€ erd.png
-    â””â”€â”€ ðŸ“ docs/
-        â””â”€â”€ description.md (not yet needed)
+    Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ README.md
+    Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ Ã°Å¸â€œÂ assets/
+    Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ erd.png
+    Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ Ã°Å¸â€œÂ sql/
+    Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ create_tables.sql
+    Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ insert_data.sql
+    Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ stored_procedures.sql
+    Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ Ã°Å¸â€œÂ python/
+    Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ db_connect_and_query.py
+    Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ Ã°Å¸â€œÂ data/
+    Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ sample_data.csv (not yet needed, possible data dumps)
+    Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ Ã°Å¸â€œÂ diagrams/
+    Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ erd.png
+    Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ Ã°Å¸â€œÂ docs/
+        Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ description.md (not yet needed)
 
 
 
@@ -91,7 +91,7 @@ Or manually perform these steps in a SQL client.
 <br>
 
 ### Server Setup in pgAdmin  
-1. Open **pgAdmin** and right-click on **Servers** â†’ **Register** â†’ **Server...**  
+1. Open **pgAdmin** and right-click on **Servers** Ã¢â€ â€™ **Register** Ã¢â€ â€™ **Server...**  
 2. In the **General** tab: enter a name like `Local PostgreSQL`  
 3. In the **Connection** tab:  
    - **Host**: `localhost`  
@@ -206,11 +206,11 @@ Will be identified later on.
 GitHub: RaminMdn
 <br>
 
-## Authorâ€™s Note
+## AuthorÃ¢â‚¬â„¢s Note
 
 This project was developed as part of personal learning and practice.
 
-At times, I consult pair programming tools, programming forums or relevant documentations â€” for purposes like:
+At times, I consult pair programming tools, programming forums or relevant documentations Ã¢â‚¬â€ for purposes like:
 
 - Proofreading code or comments
 - Double-checking best practices
@@ -218,7 +218,7 @@ At times, I consult pair programming tools, programming forums or relevant docum
 
 These tools were used in the same way any developer might use a second pair of eyes, and never as a substitute for understanding or authorship.
 
-The goal was always clarity, correctness, and learning â€” with every line written and reviewed consciously and deliberately.
+The goal was always clarity, correctness, and learning Ã¢â‚¬â€ with every line written and reviewed consciously and deliberately.
 
 <br><br>
- 
+  
