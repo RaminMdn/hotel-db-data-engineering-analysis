@@ -28,7 +28,7 @@ ORDER BY dt;
 
 -- Method 2: window function over flattened days
 
--- First create one row per room per day within bookings and then count.
+-- First we create one row per room per day within bookings and then count.
 
 WITH expanded AS (
   SELECT rr.RoomNumber,
@@ -116,7 +116,7 @@ GROUP BY g1.g1, g1.g2
 HAVING COUNT(DISTINCT g1.ReservationId) >= 3;
 
 
--- Method 3: Window Function Method (not an original solution, might be more sophisticated)
+-- Method 3: Window Function Method (not my original solution, might be more sophisticated)
 WITH pair_counts AS (
   SELECT
     LEAST(gr1.GuestId, gr2.GuestId) AS guest_a,
